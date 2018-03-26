@@ -1,1 +1,11 @@
-issues
+<div class="col-md-10 mx-auto p-0 mt-50">
+  <div class="card">
+    <h5 class="card-header">Featured</h5>
+    <div class="card-body p-0">
+      <ul class="list-group simplebox blade">
+        <app-issue-item *ngFor="let issue of issues | async" [issue]="issue"></app-issue-item>
+      </ul>
+    </div>
+  </div>
+</div>
+
