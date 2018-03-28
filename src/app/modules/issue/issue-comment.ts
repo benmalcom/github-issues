@@ -1,9 +1,8 @@
-export interface Issue {
+export interface IssueComment {
     id: number;
     title: string;
     body: string;
     number: number;
-    comments: number;
     user: {
         login: string,
         avatar_url: string,

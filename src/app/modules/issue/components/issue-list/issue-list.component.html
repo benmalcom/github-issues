@@ -1,11 +1,36 @@
 <div class="col-md-10 mx-auto p-0 mt-50">
-  <div class="card">
-    <h5 class="card-header">Featured</h5>
-    <div class="card-body p-0">
-      <ul class="list-group simplebox blade">
-        <app-issue-item *ngFor="let issue of issues | async" [issue]="issue"></app-issue-item>
-      </ul>
+    <div class="col-md-4 p-0">
+        <input type="text" (keyup.enter)="searchIssues(query)"
+               [(ngModel)]="query" class="form-control br-3 text-muted"
+               placeholder="Filter issues">
     </div>
-  </div>
+    <div class="card mt-20">
+        <h5 class="card-header d-flex justify-content-start">
+            <div class="btn-group inline-block" dropdown>
+                <button dropdownToggle type="button" class="btn btn-link dropdown-toggle text-muted text-sm">
+                    State <span class="caret"></span>
+                </button>
+                <ul *dropdownMenu class="dropdown-menu text-sm" role="menu">
+                    <li role="menuitem"><a class="dropdown-item" (click)="addFilter($event, 'state=closed')" href="#">Closed</a></li>
+                    <li role="menuitem"><a class="dropdown-item" (click)="addFilter($event, 'state=open')" href="#">Open</a></li>
+                    <li role="menuitem"><a class="dropdown-item" (click)="addFilter($event, 'state=all')" href="#">All</a></li>
+                </ul>
+            </div>
+            <div class="btn-group inline-block" dropdown>
+                <button dropdownToggle type="button" class="btn btn-link dropdown-toggle text-muted text-sm">
+                    Sort <span class="caret"></span>
+                </button>
+                <ul *dropdownMenu class="dropdown-menu" role="menu">
+                    <li role="menuitem"><a class="dropdown-item" (click)="addFilter($event, 'sort=created-desc')" href="#">Newest</a></li>
+                    <li role="menuitem"><a class="dropdown-item" (click)="addFilter($event, 'sort=created-asc')" href="#">Oldest</a></li>
+                </ul>
+            </div>
+        </h5>
+        <div class="card-body p-0">
+            <ul class="list-group simplebox blade">
+                <app-issue-item *ngFor="let issue of issues | async" [issue]="issue"></app-issue-item>
+            </ul>
+        </div>
+    </div>
 </div>
 

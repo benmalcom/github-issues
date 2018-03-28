@@ -1,6 +1,10 @@
 <li class="list-group-item">
-  <div>
-    <h6><strong>{{issue.title}}</strong></h6>
-    <p class="text-sm text-muted pb-0">#{{issue.number}} opened {{issue.created_at | amTimeAgo }}  by {{issue.user.login}}</p>
-  </div>
+    <div>
+      <h6>
+          <i class="fa fa-info-circle text-success"></i>
+          <strong><a class="text-black" [routerLink]="[issue.number]">{{issue.title}}</a></strong>
+          <span class="text-right" *ngIf="issue.comments > 0"><i class="fa fa-comments-o"></i> {{issue.comments}}</span>
+      </h6>
+      <p class="text-sm text-muted pb-0">#{{issue.number}} opened {{issue.created_at | amTimeAgo }}  by {{issue.user.login}}</p>
+    </div>
 </li>

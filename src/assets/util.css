@@ -715,6 +715,7 @@ Background colors*/
   box-shadow: none !important;
   border-radius: 0 !important;
 }
+
 .simplebox.blade{border-radius: 0;}
 .dark-well{background-color: #F5F5F5 !important;} .light-well{background-color: #f7f7f7 !important;}
 .lighter-well{background-color: #f7f7f7 !important;}
@@ -734,4 +735,7 @@ Background colors*/
 }
 .border-dashed{
   border: 2px dashed #CCD3D9 !important;
+}
+.no-bold{
+    font-weight: normal;
 }

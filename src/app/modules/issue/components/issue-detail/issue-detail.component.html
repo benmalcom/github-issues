@@ -1,0 +1,49 @@
+<div class="col-md-10 mx-auto p-0 mt-50" *ngIf="issue">
+    <div>
+        <h2>{{issue.title}} <span class="text-muted">#{{issue.number}}</span></h2>
+        <p class="text-muted text-md">
+            <span class="btn btn-sm btn-success"><i class="fa fa-info-circle"></i> {{issue.state}}</span> &nbsp;
+            <b>{{issue.user.login}}</b>
+            opened this issue on {{issue.created_at | date: "mediumDate"}} · <span *ngIf="comments">{{comments.length}}</span> comments
+        </p>
+    </div>
+    <hr>
+    <ul class="list-unstyled">
+        <li class="media">
+            <img class="mr-3 media-img" [src]="issue.user.avatar_url">
+            <div class="media-body">
+                <div class="card">
+                    <h5 class="card-header no-bold text-md"><b>{{issue.user.login}}</b> commented on {{issue.created_at | date: "mediumDate"}}</h5>
+                    <div class="card-body">
+                        <div markdown-to-html class="text-sm">
+                            {{issue.body}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li *ngFor="let comment of comments" class="media mt-20">
+            <img class="mr-3 media-img" [src]="comment.user.avatar_url">
+            <div class="media-body">
+                <div class="card">
+                    <h5 class="card-header no-bold text-md"><b>{{comment.user.login}}</b> commented on {{comment.created_at | date: "mediumDate"}}</h5>
+                    <div class="card-body">
+                        <div markdown-to-html class="text-sm">
+                            {{comment.body}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!--    <li class="media my-4">
+                <img class="mr-3" src="..." alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">List-based media object</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </li>-->
+    </ul>
+
+</div>
+
+

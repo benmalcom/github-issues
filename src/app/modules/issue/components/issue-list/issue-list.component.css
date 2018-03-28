@@ -1,3 +1,12 @@
 .list-group{
   border: none;
 }
+.dropdown-toggle:hover{
+    text-decoration: none;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .card-header{
+        display: flex !important;
+        align-content: space-between !important;
+    }
+}
