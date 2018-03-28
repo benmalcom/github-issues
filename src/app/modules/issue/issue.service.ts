@@ -46,7 +46,6 @@ export class IssueService {
             }
             request.send()
             .subscribe((data: Array<Issue>) => {
-                console.log('issues ', data);
                 this._issues.next(data);
             }, (err: any) => {
                 this._error.next(err);
@@ -61,7 +60,6 @@ export class IssueService {
             .send()
             .subscribe((data: any) => {
                 const items = data.items as Array<Issue>;
-                console.log('items ', items);
                 this._issues.next(items);
             }, (err: any) => {
                 this._error.next(err);
@@ -73,7 +71,6 @@ export class IssueService {
             .send()
             .pipe(mergeMap((data: Issue) => {
                 this._issue.next(data);
-                console.log('issue ', data);
                 return this.httpService
                     .setUrl(data.comments_url)
                     .send();

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IssueService} from '../../issue.service';
 import {Issue} from '../../issue';
-import {Observable} from 'rxjs/Observable';
+import animations from '../../anim/animation';
 import {ActivatedRoute} from '@angular/router';
 import {IssueComment} from '../../issue-comment';
 
@@ -9,7 +9,8 @@ import {IssueComment} from '../../issue-comment';
 @Component({
     selector: 'app-issue-list',
     templateUrl: './issue-detail.component.html',
-    styleUrls: ['./issue-detail.component.css']
+    styleUrls: ['./issue-detail.component.css'],
+    animations
 })
 export class IssueDetailComponent implements OnInit {
 

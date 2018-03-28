@@ -10,6 +10,7 @@ import {IssueDetailComponent} from './components/issue-detail/issue-detail.compo
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -22,6 +23,7 @@ import {FormsModule} from '@angular/forms';
     ],
     imports: [
         CommonModule,
+        BrowserAnimationsModule,
         FormsModule,
         RouterModule,
         MomentModule,
